@@ -1,0 +1,165 @@
+.App {
+  text-align: center;
+  width: 900px;
+  margin: auto;
+}
+
+.App-logo {
+  height: 10vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.teeter-base{
+  text-align: center;
+  margin-top: 500px;
+}
+.teeter-bar{
+  background-color: #ff0000;
+  height: 5px;
+  margin: auto;
+  width: 100%;
+  transition: transform 2s;
+  transform: rotate(18deg);
+}
+
+.triangle-up {
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 100px solid #666;
+  width: 0;
+  height: 0;
+  margin: auto;
+}
+
+.right-block-container{
+  position: absolute;
+  bottom: 50px;
+  right: -360px;
+  width:300px;
+  height: 300px;
+  border: 1px solid #000;
+  border-radius: 5px;
+
+  > div{
+    display: inline-block;
+  }
+}
+
+
+.left-side, .right-side{
+  position: relative;
+  float: left;
+  width: 50%;
+  height: 500px;
+}
+
+.left-side{
+  position: relative;
+  text-align: center;
+
+  .weight-box {
+    color: #fff;
+    display: inline-block;
+
+    margin: auto;
+    position: relative;
+    top: 400px;
+
+    animation-name: fallLeftWeight;
+    animation-duration: 4s;
+
+    .triangle{
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid green;
+      width: 0;
+      height: 0;
+    }
+
+    .circle{
+      border-radius: 50%;
+    }
+
+    .rectangle{
+      width: 50px;
+      height: 50px;
+    }
+
+    span{
+      position: absolute;
+      top: 40%;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+.right-side{
+  .weight-box{
+    color: #fff;
+    float: right;
+    position: relative;
+    top: 500px;
+
+    animation-name: fallRightWeight;
+    animation-duration: 4s;
+
+    &__obj{
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-bottom: 100px solid green;
+      width: 0;
+      height: 0;
+    }
+
+    span{
+      position: absolute;
+      top: 48%;
+      left: 0;
+      right: 0;
+    }
+  }
+}
+
+
+.circle{
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: red;
+}
+
+@keyframes fallRightWeight {
+  0%   { top: 0px;}
+  100% { top: 500px;}
+}
+
+@keyframes fallLeftWeight {
+  0%   { top: 0px;}
+  100% { top: 400px;}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
